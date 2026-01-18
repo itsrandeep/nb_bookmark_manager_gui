@@ -1,0 +1,241 @@
+.bookmark-list {
+  padding: 20px;
+}
+
+.bookmark-list h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.filter-indicator {
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 40px;
+  font-size: 16px;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.error button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error button:hover {
+  background-color: #1565c0;
+}
+
+.bookmarks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bookmark-item {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.bookmark-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark-header {
+  margin-bottom: 8px;
+}
+
+.bookmark-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1976d2;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.bookmark-title:hover {
+  text-decoration: underline;
+}
+
+.bookmark-title-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.title-tag {
+  background-color: #f0f7ff;
+  color: #1976d2;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid #bbdefb;
+}
+
+.title-tag:hover {
+  background-color: #e3f2fd;
+  border-color: #90caf9;
+}
+
+.bookmark-url {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+  display: block;
+  word-break: break-all;
+}
+
+.bookmark-url:hover {
+  text-decoration: underline;
+}
+
+.bookmark-tags {
+  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+.bookmark-date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 8px;
+}
+
+/* Error and empty states */
+.error-container {
+  text-align: center;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 1px solid #f8d7da;
+}
+
+.error-container h3 {
+  color: #dc3545;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.error-container p {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.error-details {
+  text-align: left;
+  margin-top: 20px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.error-details summary {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.error-details summary:hover {
+  background: #dee2e6;
+}
+
+.error-details p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.retry-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 16px;
+}
+
+.retry-button:hover {
+  background: #0056b3;
+}
+
+.retry-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.no-results-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.no-results h3 {
+  color: #555;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.no-results p {
+  color: #666;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.filter-indicator {
+  color: #6c757d;
+  font-weight: normal;
+  font-size: 16px;
+}
