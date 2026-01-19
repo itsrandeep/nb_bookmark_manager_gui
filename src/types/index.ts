@@ -17,11 +17,7 @@ export interface ElectronAPI {
   nbTags: () => Promise<NbResponse>;
   nbFilterByTag: (tagName: string) => Promise<NbResponse>;
   nbShow: (bookmarkId: string) => Promise<NbResponse>;
+  nbShowWithAdded: (bookmarkId: string) => Promise<NbResponse>;
   openExternal: (url: string) => Promise<NbResponse>;
 }
 
-declare global {
-  interface Window {
-    electronAPI?: ElectronAPI;
-  }
-}

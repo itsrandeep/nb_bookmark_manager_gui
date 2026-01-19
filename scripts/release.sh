@@ -76,7 +76,7 @@ echo -e "${BLUE}📤 Creating GitHub release...${NC}"
 RELEASE_NOTES="## Bookmark Manager v$VERSION
 
 ### Features
-- Browse bookmarks from nb (nobullet) command-line tool
+- Browse bookmarks from nb command-line tool
 - Search and filter bookmarks by tags and text
 - Open bookmarks in default browser
 - Cross-platform desktop application
@@ -88,7 +88,7 @@ Download the appropriate file for your platform:
 - **Linux**: `bookmark-manager-${VERSION}-linux.AppImage` (recommended) or `.deb` package
 
 ### Requirements
-- Node.js 16+ and nb (nobullet) command-line tool installed
+- Node.js 16+ and nb command-line tool installed
 - See README.md for detailed installation instructions
 
 ---

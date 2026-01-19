@@ -128,6 +128,25 @@ class NbService {
     return bookmarks;
   }
 
+  async getBookmarkCreatedDate(bookmarkId: string): Promise<string | null> {
+    try {
+      const id = bookmarkId.replace('bookmark-', '');
+      const response = await (window as any).electronAPI.nbShowWithAdded(id) as NbResponse;
+      if (response.success && response.data) {
+        const lines = response.data.split('\n');
+        // The first line should be the date when using --added flag
+        const firstLine = lines[0]?.trim();
+        if (firstLine && firstLine.match(/^\d{4}-\d{2}-\d{2}/)) {
+          return firstLine;
+        }
+      }
+      return null;
+    } catch (error) {
+      console.error(`Error fetching created date for bookmark ${bookmarkId}:`, error);
+      return null;
+    }
+  }
+
   async getBookmarks(): Promise<Bookmark[]> {
     try {
       // Check if electronAPI is available
@@ -155,18 +174,29 @@ class NbService {
         bookmarks.map(async (bookmark) => {
           try {
             const id = bookmark.id.replace('bookmark-', '');
+            
+            // Get tags and URL from regular nb show
             const showResponse = await (window as any).electronAPI.nbShow(id) as NbResponse;
+            let tags: string[] = [];
+            let url: string | undefined;
+            
             if (showResponse.success && showResponse.data) {
-              const { tags, dateAdded, url } = this.extractTagsFromShowOutput(showResponse.data);
-              return { 
-                ...bookmark, 
-                tags, 
-                dateAdded: dateAdded || bookmark.dateAdded,
-                url: url || bookmark.url // Use full URL from show output, fallback to parsed URL
-              };
+              const extracted = this.extractTagsFromShowOutput(showResponse.data);
+              tags = extracted.tags;
+              url = extracted.url;
             }
+            
+            // Get correct created date using nb show with --added flag
+            const createdDate = await this.getBookmarkCreatedDate(bookmark.id);
+            
+            return { 
+              ...bookmark, 
+              tags, 
+              dateAdded: createdDate || bookmark.dateAdded,
+              url: url || bookmark.url // Use full URL from show output, fallback to parsed URL
+            };
           } catch (error) {
-            console.error(`Error fetching tags for bookmark ${bookmark.id}:`, error);
+            console.error(`Error fetching details for bookmark ${bookmark.id}:`, error);
           }
           return bookmark;
         })

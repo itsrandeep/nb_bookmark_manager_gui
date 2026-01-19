@@ -112,6 +112,16 @@ ipcMain.handle('nb-show', async (event, bookmarkId) => {
   }
 });
 
+ipcMain.handle('nb-show-with-added', async (event, bookmarkId) => {
+  try {
+    const { stdout } = await execPromise(`nb show ${bookmarkId} --added`);
+    const cleanOutput = stripAnsiCodes(stdout);
+    return { success: true, data: cleanOutput };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+});
+
 let mainWindow;
 
 function createWindow() {
